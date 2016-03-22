@@ -1,0 +1,275 @@
+/*  Student information for assignment:
+ *
+ *  Darren's Tester
+ *
+ */
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class RecursiveTester {
+    public static void main(String[] args) {
+        Recursive r = new Recursive();
+
+        // try the Sierpinski triangle, uncomment when ready
+//        r.drawTriangles(400, 100, 360);
+
+        // try the Sierpinski Carpet, uncomment when ready
+//        r.drawCarpet(729, 4);
+
+        // also try this
+//        r.drawCarpet(729, 1);
+
+        studentTests(r);
+
+    }
+
+    // pre: r != null
+    // post: run student test
+    private static void studentTests(Recursive r) {
+        // CS314 students put your tests here
+        String actualBinary = r.getBinary(256);
+        String expectedBinary = "100000000";
+        if( actualBinary.equals(expectedBinary) )
+            System.out.println( "Test 1.1 passed. get binary.");
+        else
+            System.out.println( "Test 1.1 failed. get binary. expected: " + expectedBinary + ", actual: " + actualBinary);
+
+
+        actualBinary = r.getBinary(257);
+        expectedBinary = "100000001";
+        if( actualBinary.equals(expectedBinary) )
+            System.out.println( "Test 1.2 passed. get binary.");
+        else
+            System.out.println( "Test 1.2 failed. get binary. expected: " + expectedBinary + ", actual: " + actualBinary);
+
+        actualBinary = r.getBinary(2);
+        expectedBinary = "10";
+        if( actualBinary.equals(expectedBinary) )
+            System.out.println( "Test 1.3 passed. get binary.");
+        else
+            System.out.println( "Test 1.3 failed. get binary. expected: " + expectedBinary + ", actual: " + actualBinary);
+
+        String actualRev = r.revString("(__*__)");
+        String expectedRev = ")__*__(";
+        if( actualRev.equals(expectedRev) )
+            System.out.println( "Test 2.1 passed. reverse string.");
+        else
+            System.out.println( "Test 2.1 failed. reverse string. expected: " + expectedRev + ", actual: " + actualRev);
+
+
+        actualRev = r.revString("A man, a plan, a canal: Panama.");
+        expectedRev = ".amanaP :lanac a ,nalp a ,nam A";
+        if( actualRev.equals(expectedRev) )
+            System.out.println( "Test 2.2 passed. reverse string.");
+        else
+            System.out.println( "Test 2.2 failed. reverse string. expected: " + expectedRev + ", actual: " + actualRev);
+
+        
+        actualRev = r.revString("");
+        expectedRev = "";
+        if( actualRev.equals(expectedRev) )
+            System.out.println( "Test 2.3 passed. reverse string.");
+        else
+            System.out.println( "Test 2.3 failed. reverse string. expected: " + expectedRev + ", actual: " + actualRev);
+
+        int[] numsForDouble = {100, 50, 25, 12, 6, 3, 1, 0};
+        int actualDouble = r.nextIsDouble(numsForDouble);
+        int expectedDouble = 0;
+        if(actualDouble == expectedDouble)
+            System.out.println( "Test 3.1 passed. next is double.");
+        else
+            System.out.println( "Test 3.1 failed. next is double. expected: " + expectedDouble + ", actual: " + actualDouble);
+
+
+        numsForDouble = new int[]{0, 0, 0, 1, 0, 0, 1, 2};
+        actualDouble = r.nextIsDouble(numsForDouble);
+        expectedDouble = 4;
+        if(actualDouble == expectedDouble)
+            System.out.println( "Test 3.2 passed. next is double.");
+        else
+            System.out.println( "Test 3.2 failed. next is double. expected: " + expectedDouble + ", actual: " + actualDouble);
+
+
+        numsForDouble = new int[]{-1, -2, -4, -8, 16, 32, -63};
+        actualDouble = r.nextIsDouble(numsForDouble);
+        expectedDouble = 4;
+        if(actualDouble == expectedDouble)
+            System.out.println( "Test 3.3 passed. next is double.");
+        else
+            System.out.println( "Test 3.3 failed. next is double. expected: " + expectedDouble + ", actual: " + actualDouble);
+
+        // unifinished
+        ArrayList<String> mnemonics = r.listMnemonics("3");
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("D");
+        expected.add("E");
+        expected.add("F");
+        if( mnemonics.equals(expected))
+            System.out.println( "Test 4.1 passed. Phone mnemonics.");
+        else
+            System.out.println( "Test 4.1 failed. Phone mnemonics.");
+
+        mnemonics = r.listMnemonics("02");
+        Collections.sort(mnemonics);
+        expected.clear();
+        expected.add("0A");
+        expected.add("0B");
+        expected.add("0C");
+        Collections.sort(expected);
+        if( mnemonics.equals(expected))
+            System.out.println( "Test 4.2 passed. Phone mnemonics.");
+        else
+            System.out.println( "Test 4.2 failed. Phone mnemonics.");
+
+        mnemonics = r.listMnemonics("97");
+        expected.clear();
+        expected.add("WP");
+        expected.add("WQ");
+        expected.add("WR");
+        expected.add("WS");
+        expected.add("XP");
+        expected.add("XQ");
+        expected.add("XR");
+        expected.add("XS");
+        expected.add("YP");
+        expected.add("YQ");
+        expected.add("YR");
+        expected.add("YS");
+        expected.add("ZP");
+        expected.add("ZQ");
+        expected.add("ZR");
+        expected.add("ZS");   
+        if( mnemonics.equals(expected))
+            System.out.println( "Test 4.3 passed. Phone mnemonics.");
+        else
+            System.out.println( "Test 4.3 failed. Phone mnemonics.");
+
+        int[][] world = new int[][]
+               {{10, 10, 10, 10, 10, 10, 10},
+                {10, 10, 10, 10, 11, 10, 10},
+                {10, 10, 10, 10, 12, 10, 10},
+                {10, 10, 10, 14, 13, 10, 10},
+                {16, 14, 18, 15, 10, 10, 10},
+                {10, 10, 10, 10, 14, 10, 10},
+                {10, 10, 10, 10, 10,  9, 10},
+                {10, 10, 10, 10, 10, 10,  6},
+                {10, 10, 10, 10, 10, 10,  3},
+                          };
+        // WHY FAILED???
+        if( r.canFlowOffMap(world,4,2))
+            System.out.println( "Test 5.1 passed. can flow off map.");
+        else
+            System.out.println( "Test 5.1 failed. can flow off map.");
+
+        if( !r.canFlowOffMap(world,5,3))
+            System.out.println( "Test 5.2 passed. can flow off map.");
+        else
+            System.out.println( "Test 5.2 failed. can flow off map.");
+
+        if( r.canFlowOffMap(world,4,0))
+            System.out.println( "Test 5.3 passed. can flow off map.");
+        else
+            System.out.println( "Test 5.3 failed. can flow off map.");
+
+
+
+        int[] abilities = {10, 20, 30, 40, 50};
+        if(r.minDifference(3, abilities) == 0)
+            System.out.println( "Test 6.1 passed. min difference.");
+        else
+            System.out.println( "Test 6.1 failed. min difference.");
+
+        if(r.minDifference(5, abilities) == 40)
+            System.out.println( "Test 6.2 passed. min difference.");
+        else
+            System.out.println( "Test 6.2 failed. min difference.");
+
+        abilities = new int[]{1, 1, 1, 1};
+        if(r.minDifference(2, abilities) == 0)
+            System.out.println( "Test 6.3 passed. min difference.");
+        else
+            System.out.println( "Test 6.3 failed. min difference.");
+
+
+
+        String puzzle1 = "700006314000030000600100080200300060000804000040001002070008001000070000386200009";
+        int[][] board = stringToBoard(puzzle1);
+        int[][] result = r.getSudokoSolution(board);
+        String actualBoard = boardToString(result);
+        String expectedBoard = "729586314158437296634192587217359468965824173843761952572948631491673825386215749";
+        if(actualBoard.equals(expectedBoard))
+            System.out.println( "Test 7.1 passed. sudoko solver.");
+        else {
+            System.out.println("Test 7.1 failed. sudoku solver:");
+            System.out.println("Expected board:");
+            printBoard(stringToBoard(expectedBoard));
+            System.out.println();
+            System.out.println("Actual board:");
+            printBoard(result);
+        }
+
+
+        String puzzle2 = "014000090003009002700800000100203000030060010000507003000002008300700500090000630";
+        board = stringToBoard(puzzle2);
+        result = r.getSudokoSolution(board);
+        actualBoard = boardToString(result);
+        expectedBoard = "814326795653479182729851346176243859435968217982517463541632978368794521297185634";
+        if(actualBoard.equals(expectedBoard))
+            System.out.println( "Test 7.2 passed. sudoko solver.");
+        else {
+            System.out.println("Test 7.2 failed. sudoku solver:");
+            System.out.println("Expected board:");
+            printBoard(stringToBoard(expectedBoard));
+            System.out.println();
+            System.out.println("Actual board:");
+            printBoard(result);
+        }
+
+
+        String puzzle3 = "060000002400900000803602100001508007600000005300207900006803201000009006700000080";
+        assert puzzle3.length() == 81;
+        board = stringToBoard(puzzle3);
+        result = r.getSudokoSolution(board);
+        actualBoard = boardToString(result);
+        expectedBoard = "169384752472915863853672194921538647687491325345267918596843271218759436734126589";
+        if(actualBoard.equals(expectedBoard))
+            System.out.println( "Test 7.3 passed. sudoko solver.");
+        else {
+            System.out.println("Test 7.3 failed. sudoku solver:");
+            System.out.println("Expected board:");
+            printBoard(stringToBoard(expectedBoard));
+            System.out.println();
+            System.out.println("Actual board:");
+            printBoard(result);
+        }
+    }
+    
+    private static String boardToString(int[][] board) {
+        StringBuilder result = new StringBuilder(81);
+        for(int r = 0; r < board.length; r++)
+            for(int c = 0; c < board[r].length; c++)
+                result.append(board[r][c]);
+        return result.toString();
+    }
+
+    private static int[][] stringToBoard(String puzzle) {
+        int[][] result = new int[Recursive.BOARD_SIZE][Recursive.BOARD_SIZE];
+        int index = 0;
+        for(int r = 0; r < result.length; r++)
+            for(int c = 0; c < result.length; c++, index++)
+                result[r][c] = puzzle.charAt(index) - '0';
+        return result;
+    }
+
+    private static void printBoard(int[][] board) {
+        for(int r = 0; r < board.length; r++) {
+            for(int c = 0; c < board[r].length; c++) {
+                System.out.print(board[r][c]);
+                System.out.print(" ");
+            }
+            System.out.println();
+        }
+    }
+}
