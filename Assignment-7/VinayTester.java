@@ -1,18 +1,6 @@
 /*  Student information for assignment:
- *
- *  Number of slip days used: 0
- *
- *  Student 1 (Student whose turnin account is being used): Vinay Valsaraj
- *  UTEID: vgv236
- *  email address: vinaygvalsaraj@gmail.com
- *  Grader name: Katherine Bruton
- *  Section number: 50978
- *
- *  Student 2: Rinchen Tsering
- *  UTEID: rt24459
- *  email address: rinchenut@utexas.edu
- *  Grader name: Katherine Bruton
- *  Section number: 50978
+ *  Vinay 
+ *  Rinchen 
  *
  */
 
