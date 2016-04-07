@@ -1,0 +1,192 @@
+public static void ourTests(){
+        ISet<String> s1 = new UnsortedSet<String>();
+        s1.add("Z");
+        s1.add("X");
+        s1.add("S");
+        s1.add("D");
+        s1.add("G");
+        s1.add("A");
+
+        //test for add method and contains method of unsorted set.
+        if (s1.contains("Z"))
+            System.out.println("Passed test 1: add and contains methods UnsortedSet");
+        else
+            System.out.println("Failed test 1: add and contains methods UnsortedSet");
+
+        //test for addAll and containsAll of unsorted set.
+        ISet<String> s2 = new UnsortedSet<String>();
+        s2.add("P");
+        s2.add("Q");
+        s1.addAll(s2);
+        if (s1.containsAll(s2))
+            System.out.println("Passed test 2: add and contains methods UnsortedSet");
+        else
+            System.out.println("Failed test 2: add and contains methods UnsortedSet");
+
+        // test for clear and size methods.
+        s1.clear();
+        if (s1.size() == 0)
+            System.out.println("Passed test 3: clear and size method");
+        else
+            System.out.println("Failed test 3: clear and size method");
+
+        //test for difference and equals methods of unsorted set
+        ISet<String> s3 = s2.difference(s1);
+        if (s3.equals(s2))
+            System.out.println("Passed test 4: difference method and equals for UnsortedSet");
+        else
+            System.out.println("Failed test 4: difference method and equals for  UnsortedSet");
+
+        // test for intersection method and remove method for unsorted set.
+        s2.add("A");
+        s3.remove("P");
+        ISet<String> expected = new UnsortedSet<String>();
+        expected.add("Q");
+        if (s2.intersection(s3).equals(expected))
+            System.out.println("Passed test 5: intersection and remove method for UnsortedSet");
+        else
+            System.out.println("Failed test 5: intersecton and remove method for UnsortedSet");
+
+        // test for union of unsorted set
+        expected = new UnsortedSet<String>();
+        expected.add("A");
+        s1 = s2.union(s3);
+        s2.remove("A");
+        if (s1.difference(s2).equals(expected))
+            System.out.println("Passed test 6: union method UnsortedSet");
+        else
+            System.out.println("Failed test 6: union method UnsortedSet");
+
+        //Sorted set tests.
+        // test for add and contains method of sorted set
+        s2.add("A");
+        if (s2.contains("A"))
+            System.out.println("Passed test 7: remove and contains method sortedSet");
+        else
+            System.out.println("Failed test 7: remove and contains method sortedSet");
+
+        //test for addAll method of sorted set.
+        s1.clear();
+        s1.addAll(s2);
+        if (s1.contains("A"))
+            System.out.println("Passed test 8: addAll method of sortedSet");
+        else
+            System.out.println("Failed test 8: addAll method of sortedSet");
+
+        // test for remove and intersection methods of sorted set.
+        s1 = new SortedSet<String>();
+        s2 = new SortedSet<String>();
+        s3 = new SortedSet<String>();
+        s1.add("A");
+        s1.add("A");
+        s1.add("B");
+        s1.remove("A");
+        s2.add("C");
+        expected = new SortedSet<String>();
+        if (s1.intersection(s2).equals(expected))
+            System.out.println("Passed test 9: remove and intersection method  of sortedSet");
+        else
+            System.out.println("Failed test 9: remove and intersection method of sortedSet");
+
+        // test for union method of sorted set
+        s1.add("A");
+        s1.add("C");
+        s2.add("A");
+        s3.add("A");
+        s3.add("B");
+        s3.add("C");
+        if (s1.union(s2).equals(s3))
+            System.out.println("Passed test 10: union method of sortedSet");
+        else
+            System.out.println("Failed test 10: union method of sortedSet");
+
+        // test for equals method
+        Object ob1 = new Object();
+        if (!s1.equals(ob1))
+            System.out.println("Passed test 11: equals method SortedSet");
+        else
+            System.out.println("Failed test 11: equals method SortedSet");
+
+        // test for equals method different set.
+        ISet<String> s4 = new UnsortedSet<String>();
+        s4.add("A");
+        s4.add("C");
+        if (s2.equals(s4))
+            System.out.println("Passed test 12: equals method for different set");
+        else
+            System.out.println("Failed test 12: equals method for different set");
+
+        // test for equals method of different data type
+        ob1 = new UnsortedSet<Integer>();
+        ((UnsortedSet)ob1).add(1);
+        if (!s1.equals(ob1))
+            System.out.println("Passed test 13: equals method of different data type");
+        else
+            System.out.println("Failed test 13: equals method of different data type");
+
+        //test for equals method of different data type.
+        ArrayList<String> ar = new ArrayList<String>();
+        ar.add("A");
+        ar.add("B");
+        ar.add("C");
+        if (!s3.equals(ar))
+            System.out.println("Passed test 14: equals method of different data type");
+        else
+            System.out.println("Failed test 14: equals method of different data type");
+
+        s1 = new SortedSet<String>();
+        s2 = new SortedSet<String>();
+        s1.add("K");
+        s1.add("S");
+        s1.add("D");
+        s1.add("F");
+        s1.add("KG");
+        s1.add("AYBERK");
+        s2.add("S");
+        s2.add("D");
+        s2.add("F");
+        s2.add("KG");
+        if (s1.containsAll(s2))
+            System.out.println("Passed test 15: contains all for 2 sorted sets");
+        else
+            System.out.println("Failed test 15: contains all for 2 sorted sets");
+
+        s2.add("AYBERK");
+        if (!s2.containsAll(s1))
+            System.out.println("Passed test 16: contains all for 2 sorted sets");
+        else
+            System.out.println("Failed test 16: contains all for 2 sorted sets");
+
+        s2.addAll(s1);
+        if (s2.containsAll(s1))
+            System.out.println("Passed test 17: contains all and add all for 2 sorted sets");
+        else
+            System.out.println("Failed test 17: contains all and add all for 2 sorted sets");
+
+        ISet s5 = new SortedSet<>();
+        s5.add(3);
+        s5.add(7);
+        s5.add(4);
+        if (!s1.containsAll(s5))
+            System.out.println("Passed test 18: contains all different types of data");
+        else
+            System.out.println("Failed test 18: contains all different types of data");
+
+        if(s1.difference(s5).equals(s1))
+            System.out.println("Passed test 19: difference different types of data");
+        else
+            System.out.println("Failed test 19: difference different types of data");
+
+        expected = new SortedSet<>();
+        if(s1.intersection(s5).equals(expected))
+            System.out.println("Passed test 20: intersection different types of data");
+        else
+            System.out.println("Failed test 20: intersection different types of data");
+
+        //This test is controversial.
+        if(s1.union(s5).equals(s1))
+            System.out.println("Passed test 21: union different types of data");
+        else
+            System.out.println("Failed test 21: union different types of data");
+        
+    }
